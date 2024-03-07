@@ -26,7 +26,7 @@ if (isset($_GET['action'])) {
             }
 
             // Afficher le formulaire pour créer un billet
-            include('form_billet.php');
+            include('views/form_billet.php');
             break;
 
         case 'utilisateur':
@@ -48,29 +48,26 @@ if (isset($_GET['action'])) {
             }
 
             // Afficher le formulaire pour créer un utilisateur avec un champ caché pour l'id du billet
-            include('form_utilisateur.php');
+            include('views/form_utilisateur.php');
             break;
 
-            case 'confirmation':
-                // Récupérer l'id du billet depuis l'URL
-                $idBillet = isset($_GET['id_billet']) ? $_GET['id_billet'] : null;
-            
-                // Récupérer les informations du billet pour afficher dans la confirmation
-                $billet = $model->getBilletById($idBillet);
-            
-                // Vérifier si les clés sont définies dans le tableau $billet avant de les utiliser
-                $dateVisite = isset($billet['dateVisite']) ? $billet['dateVisite'] : '';
-                $heureVisite = isset($billet['heureVisite']) ? $billet['heureVisite'] : '';
-                $nombrePersonnes = isset($billet['NbPersonne']) ? $billet['NbPersonne'] : '';
-            
-                // Récupérer les informations de l'utilisateur pour afficher dans la confirmation
-                $utilisateur = $model->getUtilisateurByBilletId($idBillet);
-            
-                // Vérifier si les clés sont définies dans le tableau $utilisateur avant de les utiliser
-                $email = isset($utilisateur['mail']) ? $utilisateur['mail'] : '';
-            
-                // Afficher la page de confirmation
-                include('confirmation.php');
+        case 'confirmation':
+            // Récupérer l'id du billet depuis l'URL
+            $idBillet = isset($_GET['id_billet']) ? $_GET['id_billet'] : null;
+
+            // Récupérer les informations du billet pour afficher dans la confirmation
+            $billet = $model->getBilletById($idBillet);
+
+            // Vérifier si les clés sont définies dans le tableau $billet avant de les utiliser
+            $dateVisite = isset($billet['dateVisite']) ? date('d/m/Y', strtotime($billet['dateVisite'])) : '';
+            $nombrePersonnes = isset($billet['NbPersonne']) ? $billet['NbPersonne'] : '';
+            $HeureVisite = isset($billet['HeureVisite']) ? substr($billet['HeureVisite'], 0, 5) : '';
+
+            // Récupérer les informations de l'utilisateur pour afficher dans la confirmation
+            $utilisateur = $model->getUtilisateurByBilletId($idBillet);
+
+            // Afficher la page de confirmation
+            include('views/confirmation.php');
 
             break;
 

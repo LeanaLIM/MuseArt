@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<h1>Vos coordonnées</h1>
+
 <!-- Formulaire pour créer un utilisateur -->
 <form action="?action=utilisateur&id_billet=<?php echo $_GET['id_billet']; ?>" method="post">
     <label for="nom">Nom :</label>
