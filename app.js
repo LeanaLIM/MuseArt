@@ -1,5 +1,3 @@
-
-
 const heureVisiteInput = document.getElementById("heure_visite");
 
     heureVisiteInput.addEventListener("change", function() {
