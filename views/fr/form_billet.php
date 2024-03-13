@@ -23,11 +23,19 @@
         </div>
 
 
-        <div>
-            <label for="heure_visite">Heure de visite (10h à 18h):</label>
-            <input type="time" name="heure_visite" id="heure_visite" min="10:00" max="18:00" required>
-            <span></span>
-        </div><br>
+        <select name="heureReservation">
+    <option value="">Choisissez une heure de réservation</option>
+    <?php
+    // Boucle pour générer les options d'heure
+    for ($heure = 10; $heure <= 18; $heure++) {
+        for ($minute = 0; $minute < 60; $minute += 30) {
+            // Formatage de l'heure (ajout de zéros si nécessaire)
+            $heureFormattee = sprintf("%02d:%02d", $heure, $minute);
+            echo "<option value=\"$heureFormattee\">$heureFormattee</option>";
+        }
+    }
+    ?>
+</select>
 
         <div>
             <label for="nombre_personnes">Nombre de personnes :</label>
