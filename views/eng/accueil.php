@@ -19,7 +19,7 @@
         </select>
         <button type="submit">Change language</button>
 
-        <a href="index.php?action=billet">Visit</a>
+        <a href="index.php?action=reservation">Visit</a>
 
 </body>
 
