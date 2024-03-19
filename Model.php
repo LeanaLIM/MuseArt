@@ -1,6 +1,6 @@
 <?php
 
-class Model
+/* class Model
 {
     private $api_url;
 
@@ -30,35 +30,31 @@ class Model
         );
 
         $context = stream_context_create($options);
+        //sert à envoyer les données à l'API
         $result = file_get_contents($this->api_url, false, $context);
 
-        return $result;
+        $id = $this->api_url->lastInsertId();
+
+        return array('result' => $result, 'id' => $id);
     }
 
     public function getResaById($id)
     {
-        // Construire l'URL de l'API avec l'ID de la réservation
-        $url = $this->api_url . '?id=' . $id;
-    
-        // Tenter d'effectuer la requête à l'API
-        $result = file_get_contents($url);
-    
-        // Vérifier si la requête a réussi
-        if ($result === false) {
-            // La requête a échoué, retourner false ou une valeur indiquant une erreur
-            return false;
-        }
-    
-        // La requête a réussi, décoder le résultat JSON
-        $reservation = json_decode($result, true);
-    
-        // Vérifier si le décodage JSON a réussi
-        if ($reservation === null) {
-            // Le décodage JSON a échoué, retourner false ou une valeur indiquant une erreur
-            return false;
-        }
-    
-        // La requête et le décodage JSON ont réussi, retourner les informations de la réservation
-        return $reservation;
-    }
-}
+        $data = http_build_query(array(
+            'id' => $id
+        ));
+
+        $options = array(
+            'http' => array(
+                'method' => 'GET',
+                'header' => 'Content-type: application/x-www-form-urlencoded',
+                'content' => $data
+            )
+        );
+
+        $context = stream_context_create($options);
+        $result = file_get_contents($this->api_url, false, $context);
+
+        return $result;
+    } */
+
