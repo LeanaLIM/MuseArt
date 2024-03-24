@@ -15,7 +15,10 @@
     <p>Prénom : <?= isset($reservation['prenom']) ? htmlspecialchars($reservation['prenom']) : '' ?></p>
     <p>Email : <?= isset($reservation['mail']) ? htmlspecialchars($reservation['mail']) : '' ?></p>
     <p>Date de visite : <?= isset($reservation['dateVisite']) ? htmlspecialchars($reservation['dateVisite']) : '' ?></p>
-    <p>Heure de visite : <?= isset($reservation['HeureVisite']) ? htmlspecialchars($reservation['HeureVisite']) : '' ?></p>
+    <?php if (isset($reservation['HeureVisite'])): ?>
+        <?php $heureVisite = date('H:i', strtotime($reservation['HeureVisite'])); ?>
+        <p>Heure de visite : <?= htmlspecialchars($heureVisite) ?></p>
+    <?php endif; ?>
     <p>Nombre de personnes : <?= isset($reservation['NbPersonne']) ? htmlspecialchars($reservation['NbPersonne']) : '' ?></p>
     <!-- Ajoutez ici d'autres informations de réservation que vous souhaitez afficher -->
 <?php else: ?>

@@ -84,47 +84,47 @@ if (isset($_GET['action'])) {
             curl_close($ch);
 
             // Vérification du statut de la réponse
-            if ($status_code == 200) {
-                // Décodage de la réponse JSON
-                $reservation = json_decode($response, true);
+    if ($status_code == 200) {
+        // Décodage de la réponse JSON
+        $reservation = json_decode($response, true);
 
-                // Envoi de l'e-mail de confirmation à l'utilisateur
-                $to = $reservation['mail'];
-                $subject = 'Confirmation de réservation';
-                $message = '
-                <html>
-                <body>
-                    <h1>Merci pour votre réservation!</h1>
-                    <h2>Informations du billet :</h2>
-                    <p>Date de visite : ' . htmlspecialchars($reservation['dateVisite']) . '</p>
-                    <p>Heure de visite : ' . htmlspecialchars($reservation['HeureVisite']) . '</p> 
-                    <p>Nombre de personnes : ' . htmlspecialchars($reservation['NbPersonne']) . '</p>
-                
-                    <h2>Informations de l\'utilisateur :</h2>
-                    <p>Nom : ' . htmlspecialchars($reservation['nom']) . '</p>
-                    <p>Prénom : ' . htmlspecialchars($reservation['prenom']) . '</p>
-                
-                </body>
-                </html>
-                ';
+        // Envoi de l'e-mail de confirmation à l'utilisateur
+        $to = $reservation['mail'];
+        $subject = 'Confirmation de réservation';
+        $message = '
+        <html>
+        <body>
+            <h1>Merci pour votre réservation!</h1>
+            <h2>Informations du billet :</h2>
+            <p>Date de visite : ' . htmlspecialchars($reservation['dateVisite']) . '</p>
+            <p>Heure de visite : ' . htmlspecialchars($reservation['HeureVisite']) . '</p> 
+            <p>Nombre de personnes : ' . htmlspecialchars($reservation['NbPersonne']) . '</p>
+        
+            <h2>Informations de l\'utilisateur :</h2>
+            <p>Nom : ' . htmlspecialchars($reservation['nom']) . '</p>
+            <p>Prénom : ' . htmlspecialchars($reservation['prenom']) . '</p>
+        
+        </body>
+        </html>
+        ';
 
-                $headers[] = 'MIME-Version: 1.0';
-                $headers[] = 'Content-type: text/html; charset=UTF-8';
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=UTF-8';
 
-                if (mail($to, $subject, $message, implode("\r\n", $headers))) {
-                    // Redirection vers la page de confirmation
-                    include('views/' . $_SESSION['lang'] . '/confirmation.php');
-                } else {
-                    // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
-                    $error_message = "Une erreur est survenue lors de l'envoi de l'e-mail de confirmation. Veuillez réessayer.";
-                    include('views/' . $_SESSION['lang'] . '/form_reservation.php');
-                }
-            } else {
-                // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
-                $error_message = "Une erreur est survenue lors de la récupération des informations de réservation. Veuillez réessayer.";
-                include('views/' . $_SESSION['lang'] . '/form_reservation.php');
-            }
-            break;
+        if (mail($to, $subject, $message, implode("\r\n", $headers))) {
+            // Redirection vers la page de confirmation
+            include('views/' . $_SESSION['lang'] . '/confirmation.php');
+        } else {
+            // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
+            $error_message = "Une erreur est survenue lors de l'envoi de l'e-mail de confirmation. Veuillez réessayer.";
+            include('views/' . $_SESSION['lang'] . '/form_reservation.php');
+        }
+    } else {
+        // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
+        $error_message = "Une erreur est survenue lors de la récupération des informations de réservation. Veuillez réessayer.";
+        include('views/' . $_SESSION['lang'] . '/form_reservation.php');
+    }
+    break;
 
         default:
             // Rediriger vers la première étape par défaut
