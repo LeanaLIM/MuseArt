@@ -1,0 +1,464 @@
+@font-face {
+    font-family: Satoshi;
+    src: url(fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Regular.otf);
+}
+
+@font-face {
+    font-family: Satoshi Black;
+    src: url(fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Black.otf);
+}
+
+@font-face {
+    font-family: Satoshi;
+    src: url(fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Aladin;
+    src: url(fonts/Aladin/Aladin-Regular.ttf);
+}
+
+@font-face {
+    font-family: Playdair Display;
+    src: url(fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+
+:root {
+    --red: #90242A;
+    --black: #1C1C1C;
+
+}
+
+/* html{
+    font-size: 62.5%;
+    overflow-x:hidden;
+
+ } */
+
+* {
+    text-decoration: none;
+}
+
+*{
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Satoshi', sans-serif;
+
+ }
+
+header {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Satoshi', sans-serif;
+
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Satoshi', 'Arial', 'Helvetica', 'sans-serif';
+    overflow-x: hidden;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+}
+
+@media(max-width:991px) {
+    .header {
+        padding: 2rem 3%;
+    }
+}
+
+
+
+.header.sticky {
+    border-bottom: .1rem solid rgba(0, 0, 0, .2);
+}
+
+.logo {
+    /* font-size: 1.5625rem; */
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: default;
+    /* scale: 0.5; */
+}
+
+@media (max-width:800px) {
+    #oeil{
+        width: 75px;
+    }
+}
+
+.navbar a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 2rem;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    font-size: 2rem;
+    color: var(--text-color);
+    display: none;
+}
+
+@media(max-width:768px) {
+
+    #menu-icon {
+        display: block;
+        color: white;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+        /* padding: 1rem 3%; */
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+        /* max-width: 100vw; */
+        text-align: center;
+        background: var(--black);
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 1.5rem;
+        margin: 3rem 0;
+    }
+}
+
+
+/* -------------- Page d'accueil -------------- */
+
+nav {
+    /* position: absolute;
+    top: 2rem; */
+    color: white;
+}
+@media(min-width:800px){
+section{
+    padding: 2rem 10rem;
+}
+
+
+}
+
+
+#hero {
+    background-image:
+        linear-gradient(0deg, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0) 100%),
+        url(img/tableaux/suzanne_valadon_portrait.png);
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+@media screen and (min-width:900px) {
+    #hero {
+        background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3561799719887955) 18%, rgba(0, 0, 0, 1) 66%), url(img/tableaux/autoportrait-1.png);
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        flex-direction: column;
+        justify-content: center;
+        align-items:flex-end;
+        text-align: end;
+    }
+}
+
+#bloc_titre {
+    width: 80vw;
+    margin-bottom: 5rem;
+}
+
+@media(min-width:800px){
+    #bloc_titre{
+        width: 30vw;
+    }
+
+    h1{
+        font-size: 8rem;
+    }
+}
+
+@media(max-width:800px){
+    h1{
+        font-size: 5rem;
+    }
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    /* font-size: 5rem;  */
+    margin-bottom: 1rem;
+    font-family: "Aladin";
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.sous_titre {
+    color: var(--red);
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Playfair Display';
+}
+
+#description {
+    text-align: center;
+    color: white;
+    font-size: 1.4rem;
+}
+
+#button {
+    font-size: 1.5rem;
+    padding: 0.5rem 5rem;
+    border: solid white 2px;
+    border-radius: 120px;
+    /* margin: 0; */
+    text-align: center;
+
+
+}
+
+@media(min-width:800px){
+    h1,.sous_titre , #description{
+        text-align: end;
+    }
+}
+
+span {
+    color: white;
+}
+
+/* ------------------------- 2eme section ------------------------- */
+
+#second {
+    /* height: 40vh; */
+    padding: 3rem 0;
+    width: 100vw;
+    background: var(--red);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* padding: 0 10rem; */
+}
+
+#contenu_second {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background: #7fd77e; */
+}
+
+#titre_coordonnees {
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Satoshi Black';
+    font-weight: bolder;
+    /* scale: 0.5; */
+    /* margin: 0; */
+    /* gap: 0; */
+    width: 80%;
+    margin-bottom: 2.5rem;
+}
+
+#coordonnees {
+    color: white;
+    /* position: absolute; */
+
+
+
+}
+
+.co {
+    /* gap: 1rem; */
+    /* margin: 1rem 0; */
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon{
+    /* height: 2rem;
+    width: 2rem; */
+    /* margin: 0 3rem; */
+    padding-right: 1rem;
+    display: flex;
+}
+
+
+@media(min-width:800px){
+
+    #second{
+        padding: 0;
+        height: 40vh;
+        justify-content: flex-start;
+    }
+    
+    #titre_coordonnees{
+        font-size: 4.375rem;
+        margin-bottom: 0;
+    }
+
+    #contenu_second{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        /* width: 80vw; */
+    }
+
+    #titre_coordonnees{
+        width: 35%;
+        text-align: left;
+    }
+}
+
+/* ------------------------- Banderole ------------------------- */
+
+#banderole {
+    height: 20vh;
+    background: white;
+}
+
+
+
+
+/* ------------------------- 3eme section ------------------------- */
+
+
+#third {
+    background: var(--black);
+    /* height: 200vh; */
+    width: 100vw;
+    color: white;
+    min-height: 90vh;
+    position: relative;
+    
+}
+
+#contenu_third{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between  ;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    bottom: 8rem;
+}
+
+#third > h2{
+    font-family: "Satoshi Black";
+    font-size: 5rem;
+    width: 40vw;
+    display: flex;
+    /* justify-self: center;
+    align-self: center; */
+    margin: 0;
+}
+
+.paragraphe{
+ font-size: 1.375rem;
+ width: 50%;   
+ border-left: 3px solid #ffffff;
+ padding-left: 2rem;
+}
+
+
+
+@media(max-width:800px){
+    #third > h2{
+        font-size: 3rem;
+        margin: auto;
+        width: 80%;
+        padding-bottom: 6rem;
+        padding-top: 2rem;
+    }
+
+    #contenu_third{
+        justify-content: center;
+        bottom: 5rem;
+    }
+
+    #contenu_third :nth-child(1) { order: 2; }
+
+    .paragraphe{
+        font-size: 1rem;
+        width: 80%;
+        border: 0;
+        padding-left: 1rem;
+        border-left: 1px solid #ffffff;
+        position: relative;
+        right: 1rem;
+    }
+
+    figure > img{
+       width: 80%;
+       height: auto;
+       text-align: center;
+    }
+}
+
+
+/* -------------------- troisieme section -------------------- */
+
+
+
+
+
+
+
+
+
+
