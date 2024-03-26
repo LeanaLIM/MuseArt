@@ -22,7 +22,7 @@
             <i class='bx bx-menu' id="menu-icon"></i>
             <nav class="navbar">
                 <a href="#home" class="active">Accueil</a>
-                <a href="#about">Suzanne.V</a>
+                <a href="suzanne-valadon.php">Suzanne.V</a>
                 <a href="#services">Exposition</a>
                 <a href="reservation.php">Réserver</a>
 
