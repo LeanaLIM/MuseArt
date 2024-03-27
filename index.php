@@ -11,7 +11,7 @@ if (!isset($_SESSION['lang'])) {
 }
 
 // API path
-$api_url = 'http://localhost:8081/api/api_controller.php';
+$api_url = 'http://api.andyrbr.fr/api_controller.php';
 
 // Vérifier si l'action est définie
 if (isset($_GET['action'])) {
@@ -31,7 +31,7 @@ if (isset($_GET['action'])) {
                 // Récupération des données du formulaire
                 $nom = $_POST['nom'];
                 $prenom = $_POST['prenom'];
-                $email = $_POST['email'];
+                $mail = $_POST['mail'];
                 $dateVisite = isset($_POST['dateVisite']) ? date('Y-m-d', strtotime($_POST['dateVisite'])) : '';
                 $heureVisite = isset($_POST['heureVisite']) ? date('H:i', strtotime($_POST['heureVisite'])) : '';
                 $NbPersonne = isset($_POST['NbPersonne']) ? $_POST['NbPersonne'] : '';
@@ -40,7 +40,7 @@ if (isset($_GET['action'])) {
                 $data = [
                     'nom' => $nom,
                     'prenom' => $prenom,
-                    'email' => $email,
+                    'mail' => $mail,
                     'dateVisite' => $dateVisite,
                     'heureVisite' => $heureVisite,
                     'NbPersonne' => $NbPersonne
@@ -76,7 +76,7 @@ if (isset($_GET['action'])) {
             $reservation_id = isset($_GET['id']) ? $_GET['id'] : null;
 
             // Envoi d'une requête GET à l'API pour récupérer les informations de réservation
-            $api_url = "http://localhost:8081/api/api_controller.php?id=$reservation_id";
+            $api_url = "http://api.andyrbr.fr/api_controller.php?id=$reservation_id";
             $ch = curl_init($api_url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $response = curl_exec($ch);
@@ -88,8 +88,8 @@ if (isset($_GET['action'])) {
                 // Décodage de la réponse JSON
                 $reservation = json_decode($response, true);
 
-                // Envoi de l'e-email de confirmation à l'utilisateur
-                $to = $reservation['email'];
+                // Envoi de l'e-mail de confirmation à l'utilisateur
+                $to = $reservation['mail'];
                 $subject = 'Confirmation de réservation';
                 $message = '
         <html>
@@ -116,7 +116,7 @@ if (isset($_GET['action'])) {
                     include('views/' . $_SESSION['lang'] . '/confirmation.php');
                 } else {
                     // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
-                    $error_message = "Une erreur est survenue lors de l'envoi de l'e-email de confirmation. Veuillez réessayer.";
+                    $error_message = "Une erreur est survenue lors de l'envoi de l'e-mail de confirmation. Veuillez réessayer.";
                     include('views/' . $_SESSION['lang'] . '/form_reservation.php');
                 }
             } else {

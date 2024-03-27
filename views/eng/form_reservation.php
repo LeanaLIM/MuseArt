@@ -23,8 +23,8 @@
         <label for="prenom">Prénom :</label>
         <input type="text" name="prenom" id="prenom" required><br>
 
-        <label for="email">email :</label>
-        <input type="email" name="email" id="email" required><br>
+        <label for="mail">mail :</label>
+        <input type="mail" name="mail" id="mail" required><br>
 
         <div>
             <label for="dateVisite">Date de visite :</label>
