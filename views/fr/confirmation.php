@@ -15,7 +15,7 @@
     <?php if ($reservation) : ?>
         <p>Nom : <?= isset($reservation['nom']) ? htmlspecialchars($reservation['nom']) : '' ?></p>
         <p>Prénom : <?= isset($reservation['prenom']) ? htmlspecialchars($reservation['prenom']) : '' ?></p>
-        <p>Email : <?= isset($reservation['mail']) ? htmlspecialchars($reservation['mail']) : '' ?></p>
+        <p>Eemail : <?= isset($reservation['email']) ? htmlspecialchars($reservation['email']) : '' ?></p>
         <p>Date de visite : <?= isset($reservation['dateVisite']) ? htmlspecialchars($reservation['dateVisite']) : '' ?></p>
         <?php if (isset($reservation['heureVisite'])) : ?>
             <?php $heureVisite = date('H:i', strtotime($reservation['heureVisite'])); ?>

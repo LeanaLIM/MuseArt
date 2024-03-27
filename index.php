@@ -31,7 +31,7 @@ if (isset($_GET['action'])) {
                 // Récupération des données du formulaire
                 $nom = $_POST['nom'];
                 $prenom = $_POST['prenom'];
-                $mail = $_POST['mail'];
+                $email = $_POST['email'];
                 $dateVisite = isset($_POST['dateVisite']) ? date('Y-m-d', strtotime($_POST['dateVisite'])) : '';
                 $heureVisite = isset($_POST['heureVisite']) ? date('H:i', strtotime($_POST['heureVisite'])) : '';
                 $NbPersonne = isset($_POST['NbPersonne']) ? $_POST['NbPersonne'] : '';
@@ -40,7 +40,7 @@ if (isset($_GET['action'])) {
                 $data = [
                     'nom' => $nom,
                     'prenom' => $prenom,
-                    'mail' => $mail,
+                    'email' => $email,
                     'dateVisite' => $dateVisite,
                     'heureVisite' => $heureVisite,
                     'NbPersonne' => $NbPersonne
@@ -88,8 +88,8 @@ if (isset($_GET['action'])) {
                 // Décodage de la réponse JSON
                 $reservation = json_decode($response, true);
 
-                // Envoi de l'e-mail de confirmation à l'utilisateur
-                $to = $reservation['mail'];
+                // Envoi de l'e-email de confirmation à l'utilisateur
+                $to = $reservation['email'];
                 $subject = 'Confirmation de réservation';
                 $message = '
         <html>
@@ -116,7 +116,7 @@ if (isset($_GET['action'])) {
                     include('views/' . $_SESSION['lang'] . '/confirmation.php');
                 } else {
                     // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
-                    $error_message = "Une erreur est survenue lors de l'envoi de l'e-mail de confirmation. Veuillez réessayer.";
+                    $error_message = "Une erreur est survenue lors de l'envoi de l'e-email de confirmation. Veuillez réessayer.";
                     include('views/' . $_SESSION['lang'] . '/form_reservation.php');
                 }
             } else {
