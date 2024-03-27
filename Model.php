@@ -10,14 +10,14 @@
     }
 
     // Enregistrer une réservation via l'API
-    public function enregistrerResa($nom, $prenom, $mail, $dateVisite, $HeureVisite, $NbPersonne)
+    public function enregistrerResa($nom, $prenom, $mail, $dateVisite, $heureVisite, $NbPersonne)
     {
         $data = http_build_query(array(
             'nom' => $nom,
             'prenom' => $prenom,
             'mail' => $mail,
             'dateVisite' => $dateVisite,
-            'HeureVisite' => $HeureVisite,
+            'heureVisite' => $heureVisite,
             'NbPersonne' => $NbPersonne // J'ai ajusté le nom de la clé pour correspondre à ce que votre API attend
         ));
 
@@ -57,4 +57,3 @@
 
         return $result;
     } */
-

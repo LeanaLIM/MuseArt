@@ -117,7 +117,7 @@
                 <div class="grp">
                     <div>
                         <p>Hour:</p>
-                        <span><?= isset($reservation['HeureVisite']) ? htmlspecialchars($reservation['HeureVisite']) : '' ?></span>
+                        <span><?= isset($reservation['heureVisite']) ? htmlspecialchars($reservation['heureVisite']) : '' ?></span>
                     </div>
                     <div>
                         <p>Places:</p>

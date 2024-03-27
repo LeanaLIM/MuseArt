@@ -32,7 +32,7 @@
         </div>
 
 
-        <select name="HeureVisite" type=time>
+        <select name="heureVisite" type=time>
             <option value="">Choisissez une heure de réservation</option>
             <?php
             // Boucle pour générer les options d'heure

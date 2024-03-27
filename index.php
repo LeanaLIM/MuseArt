@@ -33,7 +33,7 @@ if (isset($_GET['action'])) {
                 $prenom = $_POST['prenom'];
                 $mail = $_POST['mail'];
                 $dateVisite = isset($_POST['dateVisite']) ? date('Y-m-d', strtotime($_POST['dateVisite'])) : '';
-                $HeureVisite = isset($_POST['HeureVisite']) ? date('H:i', strtotime($_POST['HeureVisite'])) : '';
+                $heureVisite = isset($_POST['heureVisite']) ? date('H:i', strtotime($_POST['heureVisite'])) : '';
                 $NbPersonne = isset($_POST['NbPersonne']) ? $_POST['NbPersonne'] : '';
 
                 // Données à envoyer à l'API
@@ -42,7 +42,7 @@ if (isset($_GET['action'])) {
                     'prenom' => $prenom,
                     'mail' => $mail,
                     'dateVisite' => $dateVisite,
-                    'HeureVisite' => $HeureVisite,
+                    'heureVisite' => $heureVisite,
                     'NbPersonne' => $NbPersonne
                 ];
 
@@ -84,20 +84,20 @@ if (isset($_GET['action'])) {
             curl_close($ch);
 
             // Vérification du statut de la réponse
-    if ($status_code == 200) {
-        // Décodage de la réponse JSON
-        $reservation = json_decode($response, true);
+            if ($status_code == 200) {
+                // Décodage de la réponse JSON
+                $reservation = json_decode($response, true);
 
-        // Envoi de l'e-mail de confirmation à l'utilisateur
-        $to = $reservation['mail'];
-        $subject = 'Confirmation de réservation';
-        $message = '
+                // Envoi de l'e-mail de confirmation à l'utilisateur
+                $to = $reservation['mail'];
+                $subject = 'Confirmation de réservation';
+                $message = '
         <html>
         <body>
             <h1>Merci pour votre réservation!</h1>
             <h2>Informations du billet :</h2>
             <p>Date de visite : ' . htmlspecialchars($reservation['dateVisite']) . '</p>
-            <p>Heure de visite : ' . htmlspecialchars($reservation['HeureVisite']) . '</p> 
+            <p>Heure de visite : ' . htmlspecialchars($reservation['heureVisite']) . '</p> 
             <p>Nombre de personnes : ' . htmlspecialchars($reservation['NbPersonne']) . '</p>
         
             <h2>Informations de l\'utilisateur :</h2>
@@ -108,23 +108,23 @@ if (isset($_GET['action'])) {
         </html>
         ';
 
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=UTF-8';
+                $headers[] = 'MIME-Version: 1.0';
+                $headers[] = 'Content-type: text/html; charset=UTF-8';
 
-        if (mail($to, $subject, $message, implode("\r\n", $headers))) {
-            // Redirection vers la page de confirmation
-            include('views/' . $_SESSION['lang'] . '/confirmation.php');
-        } else {
-            // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
-            $error_message = "Une erreur est survenue lors de l'envoi de l'e-mail de confirmation. Veuillez réessayer.";
-            include('views/' . $_SESSION['lang'] . '/form_reservation.php');
-        }
-    } else {
-        // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
-        $error_message = "Une erreur est survenue lors de la récupération des informations de réservation. Veuillez réessayer.";
-        include('views/' . $_SESSION['lang'] . '/form_reservation.php');
-    }
-    break;
+                if (mail($to, $subject, $message, implode("\r\n", $headers))) {
+                    // Redirection vers la page de confirmation
+                    include('views/' . $_SESSION['lang'] . '/confirmation.php');
+                } else {
+                    // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
+                    $error_message = "Une erreur est survenue lors de l'envoi de l'e-mail de confirmation. Veuillez réessayer.";
+                    include('views/' . $_SESSION['lang'] . '/form_reservation.php');
+                }
+            } else {
+                // Affichage d'un message d'erreur et redirection vers le formulaire de réservation
+                $error_message = "Une erreur est survenue lors de la récupération des informations de réservation. Veuillez réessayer.";
+                include('views/' . $_SESSION['lang'] . '/form_reservation.php');
+            }
+            break;
 
         default:
             // Rediriger vers la première étape par défaut

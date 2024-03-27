@@ -31,8 +31,8 @@
             <input type="date" name="dateVisite" id="dateVisite" required min="2024-03-28"><br>
         </div>
 
-        <label for="HeureVisite">Choisissez une heure de réservation</label>
-        <select name="HeureVisite" type=time>
+        <label for="heureVisite">Choisissez une heure de réservation</label>
+        <select name="heureVisite" type=time>
             <option value="">Choisissez une heure de réservation</option>
             <?php
             // Boucle pour générer les options d'heure
