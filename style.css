@@ -807,3 +807,107 @@ p{
     font-weight: bold;
     cursor: pointer;
   }
+
+
+
+
+  /* ---------------------- Formulaire Réservation form résa ------------------------------*/
+
+  #section_resa{
+    min-height: 100vh;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    color: white;
+    font-family: "Satoshi";
+    background-image: url(img/éléments/bg_resa.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position-x: -20rem; */
+  }
+
+#bloc_formulaire{
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    /* background: #641818; */
+    width: 50%;
+    position: relative;
+}
+
+
+  #bloc_formulaire > h1{
+    font-family: "Satoshi Black";
+    text-transform: none;
+    font-size: 6rem;
+  }
+
+  #formulaire_resa{
+    /* background: #53d06a; */
+    /* width: 60%; */
+    border-left: 5px solid white;
+    padding-left: 2rem;
+    /* min-height: 50vh; */
+    font-size: 1.375rem;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start; */
+    width: 90%;
+  }
+
+  .ligne_formulaire{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* background: #000; */
+    margin: 2rem 0;
+    margin-bottom: 3rem;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  .input{
+    width: 250px;
+    height: 1.4rem;
+    border-bottom: 1px solid white;
+    background: none;
+    color: white;
+    font-size: 1.375rem;
+    position: absolute;
+    right: 0    ;
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+  
+  .select_formulaire{
+    background: none;
+    color: white;
+    font-size: 1.375rem;
+    border-bottom: 1px solid white;
+  }
+
+  #bouton{
+    background: var(--infrared);
+    color: white;
+    padding: 1rem 5rem;
+    font-size: 1.375rem;
+    border-radius: 120px;
+    position: absolute;
+    right: 0;
+  }
+
+  /* ------------------- page confirmation --------------------- */
+
+  #confirmation{
+    height: 100vh;
+    background-image: url(img/éléments/bg_confirmation.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+  }

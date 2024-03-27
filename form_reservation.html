@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reservation.css">
+    <title>Document</title>
+    <!-- Flatpickr Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+
+    <section id="section_resa">
+        <header class="header">
+            <a href="#" class="logo"><img src="img/éléments/Logo-SV-blanc 1.svg" id="oeil" alt=""></a>
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <nav class="navbar">
+                <a href="accueil.html" class="active">Accueil</a>
+                <a href="exposition.html">Exposition</a>
+                <a href="suzanne-valadon.html">Suzanne.V</a>
+                <a href="reservation.html">Réserver</a>
+
+            </nav>
+        </header>
+
+        <div id="bloc_formulaire">
+            <h1>Réservation</h1>
+            <!-- Formulaire pour créer un reservation -->
+            <form action="?action=reservation" method="post" id="formulaire_resa">
+                <div class="ligne_formulaire">
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" id="nom" class="input" required placeholder="coucou"><br>
+                </div>
+                <div class="ligne_formulaire">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" name="prenom" id="prenom" class="input" required placeholder="coucou"><br>
+                </div>
+                <div class="ligne_formulaire">
+                    <label for="mail">Adresse mail :</label>
+                    <input type="mail" name="mail" id="mail" class="input" required placeholder="coucou"><br>
+                </div>
+                <div class="ligne_formulaire">
+                    <label for="dateVisite">Date de visite :</label>
+                    <input type="date" name="dateVisite" id="dateVisite" class="input" required min="2024-03-28" placeholder="coucou"><br>
+                </div>
+                <div class="ligne_formulaire">
+                    <label for="HeureVisite">Horaire</label>
+                    <select name="HeureVisite" id="HeureVisite" type=time  class="select_formulaire" placeholder="zfza">
+                        <option value="">Choisissez une heure de réservation</option>
+                        <?php
+                        // Boucle pour générer les options d'heure
+                        for ($heure = 10; $heure <= 18; $heure++) {
+                            for ($minute = 0; $minute < 60; $minute += 30) {
+                                // Formatage de l'heure (ajout de zéros si nécessaire)
+                                $heureFormattee = sprintf("%02d:%02d", $heure, $minute);
+                                echo "<option value=\"$heureFormattee\">$heureFormattee</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="ligne_formulaire">
+                    <label for="NbPersonne">Nombre de personnes :</label>
+                    <select name="NbPersonne" id="NbPersonne" class="select_formulaire" placeholder="zfza" required>
+                        <option value="">Sélectionnez le nombre</option>
+                        <!-- Boucle pour générer les options de 1 à 10 -->
+                        <?php for ($i = 1; $i <= 10; $i++) { ?>
+                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php } ?>
+                    </select><br>
+                </div>
+                <input type="submit" id="bouton" value="Suivant">
+            </form>
+        </div>
+    </section>
+
+</body>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Configuration de Flatpickr -->
+<script src="app.js" type="module"></script>
+
+</html>
