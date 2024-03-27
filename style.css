@@ -491,9 +491,38 @@ h2{
     font-size: 3rem;
 }
 
+#contenu_fourth{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between  ;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    bottom: 8rem;
+    /* min-height: 100vh; */
+    height: 100vh;
+    
+}
 
+#images_fourth{
+    width: 45%;
+    height: 100%;
+    /* background: #ffffff; */
 
+    background-image: url(img/éléments/bg_tableaux.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    scale: 1.1;
 
+}
+
+#paragraphe_fourth{
+font-size: 1.375rem;
+ width: 40%;   
+ border-left: 3px solid #ffffff;
+ padding-left: 2rem;
+ color: white;
+}
 
 
 
