@@ -1,0 +1,29 @@
+#cadre_second_expo{
+    /* height: 50%; */
+    /* height: 500px; */
+    width: auto;
+    /* border: #90242A 2px solid; */
+    /* overflow: hidden; */
+    position: absolute;
+    right: 0;
+}
+
+#cadre_second_expo img{
+    object-fit: cover;
+    /* background: #8a3030; */
+    border: green 5px solid;
+    /* position: relative; */
+    /* position: absolute; */
+}
+
+/* #second_expo_img{
+    object-fit: contain;
+} */
+
+#paragraphe_second{
+    color: white;
+    width: 30%;
+    padding-left: 2rem;
+    border-left: 5px solid var(--red);
+    height: 50%;
+}
